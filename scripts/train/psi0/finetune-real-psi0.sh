@@ -11,7 +11,7 @@ echo "Training with $NPROC_PER_NODE GPUs"
 
 if [ "$#" -lt 1 ]; then
     echo "Usage: $0 <task> [exp]"
-    echo "Example: $0 Pick_toys_into_box_and_lift_and_turn_and_put_on_the_chair_new_target_yaw pick-toys"
+    echo "Example: $0 Pick_up_an_apple"
     exit 1
 fi
 
@@ -60,8 +60,8 @@ finetune_real_psi0_config \
 --data.transform.model.img-aug \
 --data.transform.model.resize.size 240 320 \
 --data.transform.model.center_crop.size 240 320 \
---model.model_name_or_path=/hfm/cache/checkpoints/psi0/pre.fast.1by1.2601091803.ckpt.ego200k.he30k \
---model.pretrained-action-header-path=/hfm/cache/checkpoints/psi0/postpre.1by1.pad36.2601131206.ckpt.he30k \
+--model.model_name_or_path=/mnt/data0/xhx/model/psi-model/psi0/pre.fast.1by1.2601091803.ckpt.ego200k.he30k \
+--model.pretrained-action-header-path=/mnt/data0/xhx/model/psi-model/psi0/postpre.1by1.pad36.2601131206.ckpt.he30k \
 --model.noise-scheduler=flow \
 --model.train-diffusion-steps=1000 \
 --model.n_conditions=0 \
